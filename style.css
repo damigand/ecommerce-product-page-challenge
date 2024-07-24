@@ -149,21 +149,12 @@ main {
     height: min-content;
 }
 
-.images {
-    width: 50%;
-    max-width: 445px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: var(--spacing-30);
-    height: max-content;
-}
-
 .img-wrapper {
     display: flex;
     width: 25%;
     border-radius: 8px;
     overflow: hidden;
+    border: 3px solid transparent;
 }
 
 .img-wrapper.selected {
@@ -185,15 +176,63 @@ main {
     transition: 0.3s ease;
 }
 
-.all-images {
+.small-images {
     display: flex;
     max-width: 100%;
-    gap: var(--spacing-12);
+    gap: var(--spacing-30);
+}
+
+.images {
+    width: 100%;
+    max-width: 445px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-30);
+    overflow: hidden;
+}
+
+.wrapper {
+    max-width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
 }
 
 #main-image {
+    display: flex;
+    position: relative;
+    aspect-ratio: 1 / 1;
+    transition: all 0.3s ease-in-out;
+}
+
+#main-image.active-2 {
+    transform: translateX(-100%);
+}
+
+#main-image.active-3 {
+    transform: translateX(-200%);
+}
+
+#main-image.active-4 {
+    transform: translateX(-300%);
+}
+
+#main-image > img {
+    left: 0px;
+    position: absolute;
     width: 100%;
-    border-radius: 16px;
+    height: 100%;
+}
+
+#img-2 {
+    transform: translateX(100%);
+}
+
+#img-3 {
+    transform: translateX(200%);
+}
+
+#img-4 {
+    transform: translateX(300%);
 }
 
 .product {
