@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="script.js" defer></script>
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+        <title>Frontend Mentor | E-commerce product page</title>
+    </head>
+    <body>
+        <header>
+            <img src="images/logo.svg" class="logo" alt="sneakers logo" />
+            <ul class="header-list">
+                <li>Collections</li>
+                <li>Men</li>
+                <li>Women</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+            <img src="images/icon-cart.svg" class="cart" alt="cart icon" />
+            <img src="images/image-avatar.png" class="profile" alt="avatar image" />
+        </header>
+        <main>
+            <section class="images">
+                <img src="images/image-product-1.jpg" id="main-image" alt="product image one" />
+                <div class="all-images">
+                    <div class="img-wrapper">
+                        <img src="images/image-product-1-thumbnail.jpg" alt="image one thumbnail" />
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/image-product-2-thumbnail.jpg" alt="image two thumbnail" />
+                    </div>
+                    <div class="img-wrapper">
+                        <img
+                            src="images/image-product-3-thumbnail.jpg"
+                            alt="image three thumbnail"
+                        />
+                    </div>
+                    <div class="img-wrapper">
+                        <img
+                            src="images/image-product-4-thumbnail.jpg"
+                            alt="image four thumbnail"
+                        />
+                    </div>
+                </div>
+            </section>
+            <section class="product">
+                <span class="company">Sneaker Company</span>
+                <h1>Fall Limited Edition Sneakers</h1>
+                <span class="description">
+                    These low-profile sneakers are your perfect casual wear companion. Featuring a
+                    durable rubber outer sole, they’ll withstand everything the weather can offer.
+                </span>
+                <div class="price-section">
+                    <div class="discounted-price">
+                        <span class="price">$125.00</span>
+                        <span class="discount">50%</span>
+                    </div>
+                    <span class="full-price">$250.00</span>
+                </div>
+                <div class="buy-section">
+                    <div class="quantity">
+                        <img src="images/icon-minus.svg" alt="substract image" class="substract" />
+                        <span class="quantity-number">0</span>
+                        <img src="images/icon-plus.svg" alt="add image" class="add" />
+                    </div>
+                    <div class="add-to-cart">
+                        <img src="images/icon-cart.svg" alt="cart image" />
+                        <span>Add to cart</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- <div class="attribution" role="contentinfo">
+            Challenge by
+            <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a
+            >. Coded by <a href="https://www.github.com/damigand" target="_blank">damigand</a>.
+        </div> -->
+    </body>
+</html>

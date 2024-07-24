@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+:root {
+    --orange: hsl(26, 100%, 55%);
+    --pale-orange: hsl(25, 100%, 94%);
+
+    --very-dark-blue: hsl(220, 13%, 13%);
+    --dark-grayish-blue: hsl(219, 9%, 45%);
+    --grayish-blue: hsl(220, 14%, 75%);
+    --light-grayish-blue: hsl(223, 64%, 98%);
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%);
+    --black-75: hsla(0, 0%, 0%, 0.75);
+
+    --font-header-items: 400 16px "Kumbh Sans", sans;
+    --font-header-product: 700 14px "Kumbh Sans", sans;
+    --font-main-header: 700 44px "Kumbh Sans", sans;
+    --font-product-desc: 400 16px "Kumbh Sans", sans;
+    --font-discount-price: 700 30px "Kumbh Sans", sans;
+    --font-discount: 700 18px "Kumbh Sans", sans;
+    --font-full-price: 700 16px "Kumbh Sans", sans;
+    --font-quantity: 700 16px "Kumbh Sans", sans;
+    --font-button: 700 16px "Kumbh Sans", sans;
+
+    --spacing-44: 44px;
+    --spacing-35: 35px;
+    --spacing-30: 30px;
+    --spacing-24: 24px;
+    --spacing-15: 15px;
+    --spacing-12: 12px;
+    --spacing-10: 10px;
+}
+
+* {
+    font-family: "Kumbh Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    padding: 0px 165px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: var(--spacing-44);
+    height: 112px;
+    border-bottom: 1px solid var(--grayish-blue);
+}
+
+.header-list {
+    display: flex;
+    list-style-type: none;
+    gap: var(--spacing-35);
+    font: var(--font-header-items);
+}
+
+.cart {
+    margin-left: auto;
+}
+
+.profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+main {
+    padding: 90px 50px 0px 50px;
+    display: flex;
+    justify-content: center;
+    gap: 128px;
+    width: 100%;
+}
+
+.images {
+    width: 50%;
+    max-width: 445px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-30);
+}
+
+.all-images {
+    width: 100%;
+    max-width: 445px;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-30);
+}
+
+.all-images img {
+    width: 100%;
+    max-width: 88px;
+    border-radius: 8px;
+}
+
+#main-image {
+    width: 100%;
+    border-radius: 16px;
+}
+
+.product {
+    width: 50%;
+    max-width: 445px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-24);
+}
+
+.company {
+    font: var(--font-header-product);
+    opacity: 0.6;
+    letter-spacing: 0.2 em;
+    text-transform: uppercase;
+}
+
+h1 {
+    font: var(--font-main-header);
+}
+
+.description {
+    margin-top: var(--spacing-10);
+    font: var(--font-product-desc);
+    opacity: 0.7;
+    line-height: 150%;
+}
+
+.price-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-12);
+}
+
+.discounted-price {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+}
+
+.price {
+    font: var(--font-discount-price);
+}
+
+.full-price {
+    font: var(--font-full-price);
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+
+.discount {
+    font: var(--font-discount);
+    color: var(--white);
+    background-color: var(--black);
+    padding: 2px 10px;
+    border-radius: 4px;
+}
+
+.buy-section {
+    height: 55px;
+    display: flex;
+    gap: var(--spacing-15);
+}
+
+.quantity {
+    width: 35%;
+    padding: 5px 15px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--light-grayish-blue);
+    font: var(--font-quantity);
+}
+
+.add-to-cart {
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-15);
+    font: var(--font-button);
+    background-color: var(--orange);
+    border-radius: 12px;
+}
+
+.add-to-cart img {
+    filter: brightness(0) saturate(100);
+}
+
+.attribution {
+    font-size: 15px;
+    text-align: center;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
