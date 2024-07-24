@@ -1,7 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
 
 :root {
     --orange: hsl(26, 100%, 55%);
+    --light-orange: hsl(25, 80%, 70%);
     --pale-orange: hsl(25, 100%, 94%);
 
     --very-dark-blue: hsl(220, 13%, 13%);
@@ -12,27 +13,28 @@
     --black: hsl(0, 0%, 0%);
     --black-75: hsla(0, 0%, 0%, 0.75);
 
-    --font-header-items: 400 16px "Kumbh Sans", sans;
-    --font-header-product: 700 14px "Kumbh Sans", sans;
-    --font-main-header: 700 44px "Kumbh Sans", sans;
-    --font-product-desc: 400 16px "Kumbh Sans", sans;
-    --font-discount-price: 700 30px "Kumbh Sans", sans;
-    --font-discount: 700 18px "Kumbh Sans", sans;
-    --font-full-price: 700 16px "Kumbh Sans", sans;
-    --font-quantity: 700 16px "Kumbh Sans", sans;
-    --font-button: 700 16px "Kumbh Sans", sans;
+    --font-header-items: 400 16px 'Kumbh Sans', sans;
+    --font-header-product: 700 14px 'Kumbh Sans', sans;
+    --font-main-header: 700 44px 'Kumbh Sans', sans;
+    --font-product-desc: 400 16px 'Kumbh Sans', sans;
+    --font-discount-price: 700 30px 'Kumbh Sans', sans;
+    --font-discount: 700 18px 'Kumbh Sans', sans;
+    --font-full-price: 700 16px 'Kumbh Sans', sans;
+    --font-quantity: 700 16px 'Kumbh Sans', sans;
+    --font-button: 700 16px 'Kumbh Sans', sans;
 
     --spacing-44: 44px;
     --spacing-35: 35px;
     --spacing-30: 30px;
     --spacing-24: 24px;
+    --spacing-20: 20px;
     --spacing-15: 15px;
     --spacing-12: 12px;
     --spacing-10: 10px;
 }
 
 * {
-    font-family: "Kumbh Sans", sans-serif;
+    font-family: 'Kumbh Sans', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -41,7 +43,7 @@
 body {
     width: 100%;
     min-height: 100vh;
-    padding: 0px 165px;
+    padding: 0px 12%;
 }
 
 header {
@@ -58,24 +60,93 @@ header {
     list-style-type: none;
     gap: var(--spacing-35);
     font: var(--font-header-items);
+    height: 100%;
+    position: relative;
 }
 
-.cart {
+.header-list li {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.header-list li.selected::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    background-color: var(--orange);
+}
+
+.cart-section {
+    display: flex;
+    align-items: center;
     margin-left: auto;
+    cursor: pointer;
+    position: relative;
+}
+
+.cart-section:hover {
+    height: 100%;
+}
+
+.cart-section:hover .cart-content {
+    display: flex;
+}
+
+.cart-content {
+    cursor: default;
+    display: none;
+    flex-direction: column;
+    z-index: 5;
+    position: absolute;
+    background-color: var(--white);
+    box-shadow: 0px 10px 16px -4px rgba(0, 0, 0, 0.48);
+    width: 360px;
+    max-width: 360px;
+    height: 250px;
+    max-height: 250px;
+    transform: translateX(-50%) translateY(65%);
+}
+
+.cart-content h3 {
+    padding: var(--spacing-20);
+    border-bottom: 1px solid var(--grayish-blue);
+}
+
+.cart-content .items {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
 }
 
 .profile {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.profile:hover {
+    border: 1px solid var(--orange);
+    transition: all 0.3s ease;
 }
 
 main {
-    padding: 90px 50px 0px 50px;
+    padding: 90px 50px 2px 50px;
     display: flex;
     justify-content: center;
     gap: 128px;
     width: 100%;
+    height: min-content;
 }
 
 .images {
@@ -83,21 +154,41 @@ main {
     max-width: 445px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: var(--spacing-30);
+    height: max-content;
+}
+
+.img-wrapper {
+    display: flex;
+    width: 25%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.img-wrapper.selected {
+    border: 3px solid var(--orange);
+}
+
+.img-wrapper.selected img {
+    filter: opacity(35%);
+}
+
+.img-wrapper img {
+    width: 100%;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.img-wrapper:not(.selected):hover img {
+    filter: opacity(50%);
+    transition: 0.3s ease;
 }
 
 .all-images {
-    width: 100%;
-    max-width: 445px;
     display: flex;
-    justify-content: space-between;
-    gap: var(--spacing-30);
-}
-
-.all-images img {
-    width: 100%;
-    max-width: 88px;
-    border-radius: 8px;
+    max-width: 100%;
+    gap: var(--spacing-12);
 }
 
 #main-image {
@@ -188,10 +279,28 @@ h1 {
     font: var(--font-button);
     background-color: var(--orange);
     border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: var(--light-orange);
+    transition: all 0.3s ease;
 }
 
 .add-to-cart img {
     filter: brightness(0) saturate(100);
+}
+
+.quantity-img {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.quantity-img:hover {
+    cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(68%) sepia(59%) saturate(342%) hue-rotate(338deg) brightness(95%) contrast(99%);
 }
 
 .attribution {
@@ -200,4 +309,10 @@ h1 {
 }
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 1120px) {
+    .header-list {
+        display: none;
+    }
 }

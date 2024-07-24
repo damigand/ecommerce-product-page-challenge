@@ -13,36 +13,40 @@
         <header>
             <img src="images/logo.svg" class="logo" alt="sneakers logo" />
             <ul class="header-list">
-                <li>Collections</li>
+                <li class="selected">Collections</li>
                 <li>Men</li>
                 <li>Women</li>
                 <li>About</li>
                 <li>Contact</li>
             </ul>
-            <img src="images/icon-cart.svg" class="cart" alt="cart icon" />
+
+            <div class="cart-section">
+                <img src="images/icon-cart.svg" class="cart" alt="cart icon" />
+                <div class="cart-content">
+                    <h3>Cart</h3>
+                    <div class="items">
+                        <p>Your cart is empty</p>
+                    </div>
+                </div>
+            </div>
+
             <img src="images/image-avatar.png" class="profile" alt="avatar image" />
         </header>
         <main>
             <section class="images">
                 <img src="images/image-product-1.jpg" id="main-image" alt="product image one" />
                 <div class="all-images">
-                    <div class="img-wrapper">
+                    <div class="img-wrapper selected">
                         <img src="images/image-product-1-thumbnail.jpg" alt="image one thumbnail" />
                     </div>
                     <div class="img-wrapper">
                         <img src="images/image-product-2-thumbnail.jpg" alt="image two thumbnail" />
                     </div>
                     <div class="img-wrapper">
-                        <img
-                            src="images/image-product-3-thumbnail.jpg"
-                            alt="image three thumbnail"
-                        />
+                        <img src="images/image-product-3-thumbnail.jpg" alt="image three thumbnail" />
                     </div>
                     <div class="img-wrapper">
-                        <img
-                            src="images/image-product-4-thumbnail.jpg"
-                            alt="image four thumbnail"
-                        />
+                        <img src="images/image-product-4-thumbnail.jpg" alt="image four thumbnail" />
                     </div>
                 </div>
             </section>
@@ -50,8 +54,8 @@
                 <span class="company">Sneaker Company</span>
                 <h1>Fall Limited Edition Sneakers</h1>
                 <span class="description">
-                    These low-profile sneakers are your perfect casual wear companion. Featuring a
-                    durable rubber outer sole, they’ll withstand everything the weather can offer.
+                    These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll
+                    withstand everything the weather can offer.
                 </span>
                 <div class="price-section">
                     <div class="discounted-price">
@@ -62,9 +66,13 @@
                 </div>
                 <div class="buy-section">
                     <div class="quantity">
-                        <img src="images/icon-minus.svg" alt="substract image" class="substract" />
+                        <div class="quantity-img">
+                            <img src="images/icon-minus.svg" alt="substract image" class="substract" />
+                        </div>
                         <span class="quantity-number">0</span>
-                        <img src="images/icon-plus.svg" alt="add image" class="add" />
+                        <div class="quantity-img">
+                            <img src="images/icon-plus.svg" alt="add image" class="add" />
+                        </div>
                     </div>
                     <div class="add-to-cart">
                         <img src="images/icon-cart.svg" alt="cart image" />
