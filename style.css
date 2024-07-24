@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 
 :root {
     --orange: hsl(26, 100%, 55%);
@@ -13,15 +13,15 @@
     --black: hsl(0, 0%, 0%);
     --black-75: hsla(0, 0%, 0%, 0.75);
 
-    --font-header-items: 400 16px 'Kumbh Sans', sans;
-    --font-header-product: 700 14px 'Kumbh Sans', sans;
-    --font-main-header: 700 44px 'Kumbh Sans', sans;
-    --font-product-desc: 400 16px 'Kumbh Sans', sans;
-    --font-discount-price: 700 30px 'Kumbh Sans', sans;
-    --font-discount: 700 18px 'Kumbh Sans', sans;
-    --font-full-price: 700 16px 'Kumbh Sans', sans;
-    --font-quantity: 700 16px 'Kumbh Sans', sans;
-    --font-button: 700 16px 'Kumbh Sans', sans;
+    --font-header-items: 400 16px "Kumbh Sans", sans;
+    --font-header-product: 700 14px "Kumbh Sans", sans;
+    --font-main-header: 700 44px "Kumbh Sans", sans;
+    --font-product-desc: 400 16px "Kumbh Sans", sans;
+    --font-discount-price: 700 30px "Kumbh Sans", sans;
+    --font-discount: 700 18px "Kumbh Sans", sans;
+    --font-full-price: 700 16px "Kumbh Sans", sans;
+    --font-quantity: 700 16px "Kumbh Sans", sans;
+    --font-button: 700 16px "Kumbh Sans", sans;
 
     --spacing-44: 44px;
     --spacing-35: 35px;
@@ -34,7 +34,7 @@
 }
 
 * {
-    font-family: 'Kumbh Sans', sans-serif;
+    font-family: "Kumbh Sans", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -74,7 +74,7 @@ header {
 }
 
 .header-list li.selected::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     left: 0;
@@ -83,47 +83,48 @@ header {
     background-color: var(--orange);
 }
 
-.cart-section {
-    display: flex;
-    align-items: center;
+.cart {
     margin-left: auto;
-    cursor: pointer;
-    position: relative;
-}
-
-.cart-section:hover {
-    height: 100%;
-}
-
-.cart-section:hover .cart-content {
     display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.cart img {
+    width: 22px;
+    height: 22px;
+}
+
+.cart:hover {
+    cursor: pointer;
 }
 
 .cart-content {
-    cursor: default;
     display: none;
-    flex-direction: column;
     z-index: 5;
     position: absolute;
-    background-color: var(--white);
+    flex-direction: column;
+    right: 0;
+    background-color: white;
     box-shadow: 0px 10px 16px -4px rgba(0, 0, 0, 0.48);
-    width: 360px;
-    max-width: 360px;
-    height: 250px;
-    max-height: 250px;
-    transform: translateX(-50%) translateY(65%);
+    top: -5px;
+    width: 100%;
+    max-width: 350px;
+    height: 100%;
+    max-height: 230px;
 }
 
 .cart-content h3 {
-    padding: var(--spacing-20);
     border-bottom: 1px solid var(--grayish-blue);
+    padding: var(--spacing-20);
 }
 
-.cart-content .items {
+.cart-items {
     display: flex;
-    align-items: center;
+    width: 100%;
     height: 100%;
     justify-content: center;
+    align-items: center;
 }
 
 .profile {
@@ -147,6 +148,7 @@ main {
     gap: 128px;
     width: 100%;
     height: min-content;
+    position: relative;
 }
 
 .img-wrapper {
@@ -184,11 +186,13 @@ main {
 
 .images {
     width: 100%;
+    min-width: 340px;
     max-width: 445px;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-30);
     overflow: hidden;
+    flex-shrink: 2;
 }
 
 .wrapper {
@@ -236,12 +240,12 @@ main {
 }
 
 .product {
-    width: 50%;
     max-width: 445px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: var(--spacing-24);
+    flex-shrink: 1;
 }
 
 .company {
@@ -339,7 +343,8 @@ h1 {
 
 .quantity-img:hover {
     cursor: pointer;
-    filter: brightness(0) saturate(100%) invert(68%) sepia(59%) saturate(342%) hue-rotate(338deg) brightness(95%) contrast(99%);
+    filter: brightness(0) saturate(100%) invert(68%) sepia(59%) saturate(342%) hue-rotate(338deg)
+        brightness(95%) contrast(99%);
 }
 
 .attribution {
@@ -348,6 +353,31 @@ h1 {
 }
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 1300px) {
+    main {
+        padding: var(--spacing-44) 0 0 0;
+        gap: 88px;
+    }
+
+    .product {
+        gap: var(--spacing-10);
+    }
+
+    .product h1 {
+        font-size: 2.5vw;
+    }
+
+    .images {
+        min-width: 280px;
+        max-width: 340px;
+        gap: var(--spacing-12);
+    }
+
+    .small-images {
+        gap: var(--spacing-12);
+    }
 }
 
 @media (max-width: 1120px) {
