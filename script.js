@@ -70,3 +70,34 @@ substract.addEventListener("click", (event) => {
         quantityElement.innerText = quantity;
     }
 });
+
+var currentImage = 1;
+
+const phonePrevious = document.querySelector(".previous");
+const phoneNext = document.querySelector(".next");
+
+phonePrevious.addEventListener("click", (event) => {
+    if (currentImage > 1) {
+        currentImage--;
+        const activeClass = `active-${currentImage}`;
+
+        mainImage.classList.remove("active-1");
+        mainImage.classList.remove("active-2");
+        mainImage.classList.remove("active-3");
+        mainImage.classList.remove("active-4");
+        mainImage.classList.add(activeClass);
+    }
+});
+
+phoneNext.addEventListener("click", (event) => {
+    if (currentImage < 4) {
+        currentImage++;
+        const activeClass = `active-${currentImage}`;
+
+        mainImage.classList.remove("active-1");
+        mainImage.classList.remove("active-2");
+        mainImage.classList.remove("active-3");
+        mainImage.classList.remove("active-4");
+        mainImage.classList.add(activeClass);
+    }
+});
