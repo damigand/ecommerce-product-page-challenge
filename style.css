@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 
 :root {
     --orange: hsl(26, 100%, 55%);
@@ -13,15 +13,15 @@
     --black: hsl(0, 0%, 0%);
     --black-75: hsla(0, 0%, 0%, 0.75);
 
-    --font-header-items: 400 16px 'Kumbh Sans', sans;
-    --font-header-product: 700 14px 'Kumbh Sans', sans;
-    --font-main-header: 700 44px 'Kumbh Sans', sans;
-    --font-product-desc: 400 16px 'Kumbh Sans', sans;
-    --font-discount-price: 700 30px 'Kumbh Sans', sans;
-    --font-discount: 700 18px 'Kumbh Sans', sans;
-    --font-full-price: 700 16px 'Kumbh Sans', sans;
-    --font-quantity: 700 16px 'Kumbh Sans', sans;
-    --font-button: 700 16px 'Kumbh Sans', sans;
+    --font-header-items: 400 16px "Kumbh Sans", sans;
+    --font-header-product: 700 14px "Kumbh Sans", sans;
+    --font-main-header: 700 44px "Kumbh Sans", sans;
+    --font-product-desc: 400 16px "Kumbh Sans", sans;
+    --font-discount-price: 700 30px "Kumbh Sans", sans;
+    --font-discount: 700 18px "Kumbh Sans", sans;
+    --font-full-price: 700 16px "Kumbh Sans", sans;
+    --font-quantity: 700 16px "Kumbh Sans", sans;
+    --font-button: 700 16px "Kumbh Sans", sans;
 
     --spacing-44: 44px;
     --spacing-35: 35px;
@@ -34,7 +34,7 @@
 }
 
 * {
-    font-family: 'Kumbh Sans', sans-serif;
+    font-family: "Kumbh Sans", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -55,6 +55,18 @@ header {
     border-bottom: 1px solid var(--grayish-blue);
 }
 
+#main-image-lightbox {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+#main-image-lightbox img {
+    width: 100%;
+    position: absolute;
+}
+
 .lightbox {
     display: none;
     flex-direction: column;
@@ -70,14 +82,68 @@ header {
 }
 
 .lightbox .images {
-    width: 100%;
-    max-width: 550px;
+    max-height: 100%;
+    max-width: 500px;
 }
 
 .close-lightbox {
     font-size: 36px;
     color: var(--white);
     cursor: pointer;
+    text-align: right;
+    transition: all 0.3s ease;
+}
+
+.close-lightbox:hover {
+    color: var(--orange);
+    transition: all 0.3s ease;
+}
+
+.lightbox .wrapper {
+    position: relative;
+}
+
+.lightbox-container {
+    width: 100%;
+    max-width: 500px;
+    position: absolute;
+}
+
+.lightbox-controls {
+    width: 100%;
+    z-index: 30;
+    position: absolute;
+    height: 75px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-previous,
+.lightbox-next {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+.lightbox-next {
+    right: 0;
+    transform: translateX(50%);
+}
+
+.lightbox-previous {
+    left: 0;
+    transform: translateX(-50%);
+}
+
+.lightbox-previous:hover img,
+.lightbox-next:hover img {
+    filter: brightness(0) saturate(100%) invert(68%) sepia(59%) saturate(342%) hue-rotate(338deg)
+        brightness(95%) contrast(99%);
 }
 
 .menu {
@@ -149,7 +215,7 @@ header {
 }
 
 .header-list li.selected::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     left: 0;
@@ -227,29 +293,35 @@ main {
     position: relative;
 }
 
-.img-wrapper {
-    background-color: var(--white);
+.img-wrapper,
+.img-wrapper-lightbox {
     display: flex;
     width: 25%;
     border-radius: 8px;
     overflow: hidden;
+    border: 3px solid transparent;
 }
 
-.img-wrapper.selected {
+.img-wrapper.selected,
+.img-wrapper-lightbox.selected {
     border: 3px solid var(--orange);
+    background-color: var(--white);
 }
 
-.img-wrapper.selected img {
+.img-wrapper.selected img,
+.img-wrapper-lightbox.selected img {
     filter: opacity(35%);
 }
 
-.img-wrapper img {
+.img-wrapper img,
+.img-wrapper-lightbox img {
     width: 100%;
     cursor: pointer;
     transition: 0.3s ease;
 }
 
-.img-wrapper:not(.selected):hover img {
+.img-wrapper:not(.selected):hover img,
+.img-wrapper-lightbox:not(.selected):hover img {
     filter: opacity(50%);
     transition: 0.3s ease;
 }
@@ -314,15 +386,18 @@ main {
     cursor: pointer;
 }
 
-#main-image.active-2 {
+#main-image.active-2,
+#main-image-lightbox.active-2 {
     transform: translateX(-100%);
 }
 
-#main-image.active-3 {
+#main-image.active-3,
+#main-image-lightbox.active-3 {
     transform: translateX(-200%);
 }
 
-#main-image.active-4 {
+#main-image.active-4,
+#main-image-lightbox.active-4 {
     transform: translateX(-300%);
 }
 
@@ -333,15 +408,18 @@ main {
     height: 100%;
 }
 
-#img-2 {
+#img-2,
+#lb-img-2 {
     transform: translateX(100%);
 }
 
-#img-3 {
+#img-3,
+#lb-img-3 {
     transform: translateX(200%);
 }
 
-#img-4 {
+#img-4,
+#lb-img-4 {
     transform: translateX(300%);
 }
 
@@ -449,7 +527,8 @@ h1 {
 
 .quantity-img:hover {
     cursor: pointer;
-    filter: brightness(0) saturate(100%) invert(68%) sepia(59%) saturate(342%) hue-rotate(338deg) brightness(95%) contrast(99%);
+    filter: brightness(0) saturate(100%) invert(68%) sepia(59%) saturate(342%) hue-rotate(338deg)
+        brightness(95%) contrast(99%);
 }
 
 .attribution {
@@ -535,7 +614,8 @@ h1 {
 
     .next:hover img,
     .previous:hover img {
-        filter: brightness(0) saturate(100%) invert(68%) sepia(59%) saturate(342%) hue-rotate(338deg) brightness(95%) contrast(99%);
+        filter: brightness(0) saturate(100%) invert(68%) sepia(59%) saturate(342%)
+            hue-rotate(338deg) brightness(95%) contrast(99%);
     }
 
     main {
