@@ -81,6 +81,10 @@ header {
     top: 0;
 }
 
+.lightbox.active {
+    display: flex;
+}
+
 .lightbox .images {
     max-height: 100%;
     max-width: 500px;
@@ -263,10 +267,63 @@ header {
 
 .cart-items {
     display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
     justify-content: center;
     align-items: center;
+    gap: var(--spacing-15);
+    padding: var(--spacing-20);
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 50px;
+    width: 100%;
+    gap: var(--spacing-10);
+}
+
+.item-image {
+    height: 100%;
+    border-radius: 8px;
+}
+
+.delete-item {
+    width: 15px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-direction: column;
+    padding: 5px;
+    margin-right: auto;
+}
+
+.total-price {
+    font: var(--font-discount-price);
+    font-size: 16px;
+}
+
+.checkout {
+    cursor: pointer;
+    height: 50px;
+    width: 100%;
+    background-color: var(--orange);
+    border: none;
+    border-radius: 8px;
+    font: var(--font-button);
+    transition: all 0.3s ease;
+}
+
+.checkout:hover {
+    background-color: var(--light-orange);
+    transition: all 0.3s ease;
 }
 
 .profile {
@@ -597,6 +654,10 @@ h1 {
 
     body {
         padding: 0;
+    }
+
+    .lightbox.active {
+        display: none;
     }
 
     .cart-content {
