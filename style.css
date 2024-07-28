@@ -90,6 +90,21 @@ header {
     max-width: 500px;
 }
 
+.img-wrapper-lightbox {
+    cursor: pointer;
+    position: relative;
+}
+
+.img-wrapper-lightbox:not(.selected):hover::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
 .close-lightbox {
     font-size: 36px;
     color: var(--white);
@@ -216,6 +231,12 @@ header {
     display: flex;
     align-items: center;
     position: relative;
+    color: var(--dark-grayish-blue);
+}
+
+.header-list li:hover {
+    color: var(--black);
+    font-weight: 700;
 }
 
 .header-list li.selected::after {
@@ -233,6 +254,25 @@ header {
     display: flex;
     height: 100%;
     align-items: center;
+}
+
+.cart-image {
+    position: relative;
+}
+
+.cart-quantity {
+    display: none;
+    width: 20px;
+    text-align: center;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 2px 5px;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--white);
+    background-color: var(--orange);
 }
 
 .cart img {
@@ -374,12 +414,6 @@ main {
 .img-wrapper-lightbox img {
     width: 100%;
     cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.img-wrapper:not(.selected):hover img,
-.img-wrapper-lightbox:not(.selected):hover img {
-    filter: opacity(50%);
     transition: 0.3s ease;
 }
 

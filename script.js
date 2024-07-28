@@ -24,31 +24,6 @@ for (const image of smallImages) {
     counter++;
 }
 
-const lightboxImages = document.querySelectorAll(".img-wrapper-lightbox");
-const lightboxMainImage = document.querySelector("#main-image-lightbox");
-
-var prevousLightboxImage = document.querySelector(".img-wrapper-lightbox.selected");
-
-counter = 1;
-
-for (const image of lightboxImages) {
-    const newClass = `active-${counter}`;
-    image.addEventListener("click", (event) => {
-        lightboxMainImage.classList.remove("active-1");
-        lightboxMainImage.classList.remove("active-2");
-        lightboxMainImage.classList.remove("active-3");
-        lightboxMainImage.classList.remove("active-4");
-        lightboxMainImage.classList.add(newClass);
-
-        prevousLightboxImage.classList.remove("selected");
-        image.classList.add("selected");
-
-        prevousLightboxImage = image;
-    });
-
-    counter++;
-}
-
 var selectedHeaderItem = document.querySelector(".header-list .selected");
 const headerItems = document.querySelectorAll(".header-list li");
 
@@ -137,10 +112,40 @@ previousLightbox.addEventListener(
     () => (lightboxImageCounter = previousImage(lightboxMainImage, lightboxImageCounter))
 );
 
+const lightboxImages = document.querySelectorAll(".img-wrapper-lightbox");
+const lightboxMainImage = document.querySelector("#main-image-lightbox");
+
+var previousLightboxImage = document.querySelector(".img-wrapper-lightbox.selected");
+
+var lightboxCounter = 1;
+
+for (const image of lightboxImages) {
+    const newClass = `active-${lightboxCounter}`;
+    image.addEventListener("click", () => {
+        lightboxMainImage.classList.remove("active-1");
+        lightboxMainImage.classList.remove("active-2");
+        lightboxMainImage.classList.remove("active-3");
+        lightboxMainImage.classList.remove("active-4");
+        lightboxMainImage.classList.add(newClass);
+
+        previousLightboxImage.classList.remove("selected");
+        image.classList.add("selected");
+
+        previousLightboxImage = image;
+        lightboxImageCounter = parseInt(newClass.split("-")[1]);
+    });
+    lightboxCounter++;
+}
+
 function previousImage(imageElement, counter) {
     if (counter > 1) {
         counter--;
         const activeClass = `active-${counter}`;
+
+        lightboxImages[counter - 1].classList.add("selected");
+        previousLightboxImage.classList.remove("selected");
+
+        previousLightboxImage = lightboxImages[counter - 1];
 
         imageElement.classList.remove("active-1");
         imageElement.classList.remove("active-2");
@@ -155,6 +160,11 @@ function nextImage(imageElement, counter) {
     if (counter < 4) {
         counter++;
         const activeClass = `active-${counter}`;
+
+        lightboxImages[counter - 1].classList.add("selected");
+        previousLightboxImage.classList.remove("selected");
+
+        previousLightboxImage = lightboxImages[counter - 1];
 
         imageElement.classList.remove("active-1");
         imageElement.classList.remove("active-2");
@@ -200,11 +210,17 @@ function addToCart() {
 
     cartItems.innerHTML = cartHtml;
 
+    const cartQuantity = document.querySelector(".cart-quantity");
+    cartQuantity.innerHTML = quantity;
+    cartQuantity.style.display = "block";
+
     const removeItem = document.querySelector(".delete-item");
 
     removeItem.addEventListener("click", () => {
         cartItems.innerHTML = `
-        <p>The cart is empty</p>
-    `;
+            <p>The cart is empty</p>
+        `;
+        cartQuantity.style.display = "none";
+        cartQuantity.innerHTML = "";
     });
 }
